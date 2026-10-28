@@ -273,6 +273,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 100
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1121796048540936423
 MonoBehaviour:
   m_ObjectHideFlags: 0
