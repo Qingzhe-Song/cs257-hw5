@@ -1,11 +1,9 @@
-I completed everything in chapters 3, 4, and 10.
+I completed all the work in chapters 11, 12, and 13.
 
-When you start the world, choose the "Terrain" scene, as all the work was done there.
+When you open the project, choose the "Terrain" scene, where I completed all the work.
 
-You can see the terrain I built and the ProBuilder frame I left near the base. I kept the frame after building the base to show that I used ProBuilder.
+For particles, select the Waterfall object in the Hierarchy to see water flowing from one corner of the mountain. To see the explosion effect, enter Play mode and kill the enemy in front of you. The fire effect in front of the player loops continuously, and the rain effect above runs continuously as well. Firing the player's gun also produces a small muzzle flash.
 
-Since the base is built in the Terrain scene, I also imported the robot and the appropriate base asset into that scene. The lake around the base uses a water shader with animated ripples.
+For lighting, I created a new Lighting Settings asset as instructed and saved it in the Terrain folder inside the Scene folder. Light Probes cover the entire base floor. I placed four spotlights around the corners of the base, with shadows enabled on two of them and cubes beneath those lights to demonstrate the shadows. I also added decorative pillars around the base to show how they cast shadows.
 
-I put the Water Shader Graph in the Shaders folder. I also have my own texture in the Textures folder.
-
-For one of the steps, it asked me to change the max size of a texture/material. I changed the "base-color" texture in Sci-Fi Styled Modular Pack. I didn't have the same object that the author used to test the changed texture, so I put it on a capsule next to the player model.
+For camera post-processing, I applied all the effects demonstrated in the textbook so you can see each one in the project. When you enter Play mode, you should see a more detailed camera view with the effects applied.
