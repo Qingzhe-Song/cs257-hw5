@@ -1,14 +1,29 @@
+// Sight.cs
+// Maintainer: Qingzhe-Song
+// Summary: Finds the first collider within range and viewing angle that has an unobstructed line of sight.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Sight : MonoBehaviour
 {
+    [Header("Detection Range")]
+    [InspectorName("Detection Distance")]
+    [Tooltip("Radius in world units used to search for candidate colliders.")]
     public float distance;
+    [InspectorName("View Half Angle (Degrees)")]
+    [Tooltip("Maximum angle from forward on either side; the full viewing cone is twice this value.")]
     public float angle;
 
+    [Header("Detection Layers")]
+    [Tooltip("Layers containing colliders that this sensor can detect.")]
     public LayerMask objectsLayers;
+    [Tooltip("Layers that block the line from the sensor to a candidate collider's bounds center.")]
     public LayerMask obstaclesLayers;
+
+    [Header("Detection Result")]
+    [Tooltip("First visible candidate this frame, or null when no candidate passes the checks.")]
     public Collider detectedObject;
     // Update is called once per frame
     void Update()
@@ -17,6 +32,7 @@ public class Sight : MonoBehaviour
             transform.position, distance, objectsLayers
         );
 
+        // Clear the previous result so enemies can react when the player leaves sight.
         detectedObject = null;
 
         for (int i = 0; i < colliders.Length; i++)
@@ -32,6 +48,7 @@ public class Sight : MonoBehaviour
                 {
                     Debug.DrawLine(transform.position, collider.bounds.center, Color.green);
                     detectedObject = collider;
+                    // Use the first visible overlap result; candidates are not sorted by distance.
                     break;
                 }
                 else
