@@ -36,6 +36,8 @@ public class EnemyFSM : MonoBehaviour
     [InspectorName("Last Shot Time (Seconds)")]
     [Tooltip("Time.time recorded for the previous shot, used to enforce the shot interval.")]
     public float lastShootTime;
+
+    public ParticleSystem muzzleEffect;
     // Start is called before the first frame update
     void Awake()
     {
@@ -147,6 +149,11 @@ public class EnemyFSM : MonoBehaviour
         {
             lastShootTime = Time.time;
             Instantiate(bulletPrefab, transform.position, transform.rotation);
+
+            if (muzzleEffect != null)
+            {
+                muzzleEffect.Play();
+            }
         }
     }
 
